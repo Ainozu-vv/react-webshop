@@ -1,0 +1,143 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "firstName": "John",
+      "lastName": "Doe",
+      "email": "john.doe@example.com",
+      "phone": "123-456-7890",
+      "address": {
+        "street": "123 Main St",
+        "city": "Springfield",
+        "state": "IL",
+        "zip": "62701"
+      },
+      "role": "customer"
+    },
+    {
+      "firstName": "Jane",
+      "lastName": "Smit",
+      "email": "jane.smit@example.com",
+      "id": "2"
+    },
+    {
+      "firstName": "Alice",
+      "lastName": "White",
+      "email": "alice.white@example.com",
+      "id": "3"
+    },
+    {
+      "id": "fe63",
+      "firstName": "dfg",
+      "lastName": "dfgdfg",
+      "email": "dfg"
+    }
+  ],
+  "categories": [
+    {
+      "id": "1",
+      "name": "Electronics",
+      "description": "Gadgets and tech products"
+    },
+    {
+      "id": "2",
+      "name": "Home Appliances",
+      "description": "Items for the kitchen, living room, and more"
+    },
+    {
+      "id": "3",
+      "name": "Clothing",
+      "description": "Fashionable clothing and accessories"
+    }
+  ],
+  "products": [
+    {
+      "id": "1",
+      "name": "Smartphone X",
+      "categoryId": 1,
+      "price": 799.99,
+      "stock": 120,
+      "description": "The latest smartphone with cutting-edge technology.",
+      "rating": 4.5,
+      "reviews": [
+        {
+          "id": 1,
+          "userId": 1,
+          "rating": 5,
+          "comment": "Absolutely love this phone! The camera is amazing.",
+          "createdAt": "2024-11-15T10:00:00Z"
+        },
+        {
+          "id": 2,
+          "userId": 2,
+          "rating": 4,
+          "comment": "Great phone, but battery life could be better.",
+          "createdAt": "2024-11-16T14:30:00Z"
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "name": "Electric Blender",
+      "categoryId": 2,
+      "price": 149.99,
+      "stock": 75,
+      "description": "Powerful blender for smoothies and more.",
+      "rating": 4,
+      "reviews": [
+        {
+          "id": 3,
+          "userId": 1,
+          "rating": 4,
+          "comment": "Works well, but a bit loud.",
+          "createdAt": "2024-11-18T09:00:00Z"
+        }
+      ]
+    },
+    {
+      "id": "3",
+      "name": "T-Shirt - Red",
+      "categoryId": 3,
+      "price": 19.99,
+      "stock": 200,
+      "description": "Comfortable cotton t-shirt, available in various sizes.",
+      "rating": 4.7,
+      "reviews": []
+    }
+  ],
+  "orders": [
+    {
+      "id": "1",
+      "userId": 1,
+      "orderDate": "2024-11-10T14:45:00Z",
+      "status": "shipped",
+      "items": [
+        {
+          "productId": 1,
+          "quantity": 1,
+          "price": 799.99
+        },
+        {
+          "productId": 2,
+          "quantity": 1,
+          "price": 149.99
+        }
+      ],
+      "totalAmount": 949.98
+    },
+    {
+      "id": "2",
+      "userId": 2,
+      "orderDate": "2024-11-12T11:30:00Z",
+      "status": "delivered",
+      "items": [
+        {
+          "productId": 3,
+          "quantity": 3,
+          "price": 19.99
+        }
+      ],
+      "totalAmount": 59.97
+    }
+  ]
+}

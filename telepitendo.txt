@@ -1,0 +1,6 @@
+json-server -- kamu api teszthez jsonból
+axios -- api lekérdezéshez
+react-router
+react-router-dom
+--- TAILWIND ---
+npm install tailwindcss @tailwindcss/vite
