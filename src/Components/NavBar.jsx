@@ -3,7 +3,7 @@ import { Link } from "react-router";
 const NavBar = () => {
   return (
     <nav class="bg-neutral-primary fixed w-full z-20 top-0 start-0 border-b border-default">
-      <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+      <div class="max-w-7xl flex flex-wrap items-center justify-between mx-auto p-4">
         <a
           href="https://flowbite.com/"
           class="flex items-center space-x-3 rtl:space-x-reverse"
