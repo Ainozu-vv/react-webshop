@@ -5,14 +5,14 @@ const UserCard = ({
     firstName="Lorem",
     lastName="Ipsum",
     email="a@b.c",
-    img_url="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"
+    img_Url="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"
 }) => {
   return (
     <div class="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
       <div class="flex flex-col items-center pb-10">
         <img
           class="w-24 h-24 mb-3 rounded-full shadow-lg"
-          src={img_url}
+          src={img_Url}
           alt="Profile image"
         />
         <h5 class="mb-1 text-xl font-medium text-gray-900 dark:text-white">

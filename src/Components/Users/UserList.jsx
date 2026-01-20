@@ -24,15 +24,17 @@ const UserList = () => {
   }
   return (
     <>
-      <Link
-        to={"/new-user"}
-        className="text-white bg-blue-700
+      <div className="pt-20">
+        <Link
+          to={"/new-user"}
+          className="text-white bg-blue-700
         hover:bg-blue-800
         focus:ring-4 focus:ring-blue-300
         font-medium rounded-lg text-sm px-5 py-2.5"
-      >
-        Add new User{" "}
-      </Link>
+        >
+          Add new User{" "}
+        </Link>
+      </div>
       <div className="grid grid-cols-3 pt-12">
         {users.map((user) => (
           <UserCard
@@ -40,6 +42,7 @@ const UserList = () => {
             firstName={user.firstName}
             lastName={user.lastName}
             email={user.email}
+            img_Url={user.img_Url}
           />
         ))}
       </div>
