@@ -2,31 +2,31 @@ import React from "react";
 import { Link } from "react-router";
 const NavBar = () => {
   return (
-    <nav class="bg-neutral-primary fixed w-full z-20 top-0 start-0 border-b border-default">
-      <div class="max-w-7xl flex flex-wrap items-center justify-between mx-auto p-4">
+    <nav className="bg-white fixed w-full z-20 top-0 start-0 border-b border-slate-200">
+      <div className="max-w-7xl flex flex-wrap items-center justify-between mx-auto px-4 py-3">
         <a
           href="https://flowbite.com/"
-          class="flex items-center space-x-3 rtl:space-x-reverse"
+          className="flex items-center gap-3"
         >
           <img
             src="https://flowbite.com/docs/images/logo.svg"
-            class="h-7"
+            className="h-7"
             alt="Flowbite Logo"
           />
-          <span class="self-center text-xl text-heading font-semibold whitespace-nowrap">
+          <span className="self-center text-xl text-slate-900 font-semibold whitespace-nowrap">
             Flowbite
           </span>
         </a>
         <button
           data-collapse-toggle="navbar-default"
           type="button"
-          class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-body rounded-base md:hidden hover:bg-neutral-secondary-soft hover:text-heading focus:outline-none focus:ring-2 focus:ring-neutral-tertiary"
+          className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-slate-700 rounded-lg md:hidden hover:bg-slate-100 hover:text-slate-900 focus:outline-none focus:ring-2 focus:ring-slate-300"
           aria-controls="navbar-default"
           aria-expanded="false"
         >
-          <span class="sr-only">Open main menu</span>
+          <span className="sr-only">Open main menu</span>
           <svg
-            class="w-6 h-6"
+            className="w-6 h-6"
             aria-hidden="true"
             xmlns="http://www.w3.org/2000/svg"
             width="24"
@@ -36,18 +36,18 @@ const NavBar = () => {
           >
             <path
               stroke="currentColor"
-              stroke-linecap="round"
-              stroke-width="2"
+              strokeLinecap="round"
+              strokeWidth="2"
               d="M5 7h14M5 12h14M5 17h14"
             />
           </svg>
         </button>
-        <div class="hidden w-full md:block md:w-auto" id="navbar-default">
-          <ul class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-default rounded-base bg-neutral-secondary-soft md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-neutral-primary">
+        <div className="hidden w-full md:block md:w-auto" id="navbar-default">
+          <ul className="font-medium flex flex-col p-4 md:p-0 mt-4 border border-slate-200 rounded-lg bg-slate-50 md:flex-row md:gap-8 md:mt-0 md:border-0 md:bg-white">
             <li>
               <Link
                 to="/"
-                class="block py-2 px-3 text-heading rounded hover:bg-neutral-tertiary md:hover:bg-transparent md:border-0 md:hover:text-fg-brand md:p-0 md:dark:hover:bg-transparent"
+                className="block py-2 px-3 text-slate-900 rounded hover:bg-slate-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0"
               >
                 Home
               </Link>
@@ -55,7 +55,7 @@ const NavBar = () => {
             <li>
               <Link
                 to="/users"
-                class="block py-2 px-3 text-heading rounded hover:bg-neutral-tertiary md:hover:bg-transparent md:border-0 md:hover:text-fg-brand md:p-0 md:dark:hover:bg-transparent"
+                className="block py-2 px-3 text-slate-900 rounded hover:bg-slate-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0"
               >
                 Users
               </Link>
@@ -63,7 +63,7 @@ const NavBar = () => {
             <li>
               <Link
                 to="/test"
-                class="block py-2 px-3 text-heading rounded hover:bg-neutral-tertiary md:hover:bg-transparent md:border-0 md:hover:text-fg-brand md:p-0 md:dark:hover:bg-transparent"
+                className="block py-2 px-3 text-slate-900 rounded hover:bg-slate-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0"
               >
                 Test
               </Link>

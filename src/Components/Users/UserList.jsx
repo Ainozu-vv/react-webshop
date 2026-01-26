@@ -24,7 +24,7 @@ const UserList = () => {
   }
   return (
     <>
-      <div className="pt-20">
+      <div className="flex items-center justify-between">
         <Link
           to={"/new-user"}
           className="text-white bg-blue-700
@@ -35,7 +35,7 @@ const UserList = () => {
           Add new User{" "}
         </Link>
       </div>
-      <div className="grid grid-cols-3 pt-12">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 pt-8">
         {users.map((user) => (
           <UserCard
             id={user.id}

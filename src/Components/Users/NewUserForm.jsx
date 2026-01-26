@@ -42,7 +42,7 @@ const NewUserForm = () => {
 
   return (
     <form
-      className="grid grid-cols-2 gap-6 mb-6 2 pt-20"
+      className="grid grid-cols-2 gap-6 max-w-2xl"
       onSubmit={handleSubmit}
     >
       <InputField
@@ -64,7 +64,7 @@ const NewUserForm = () => {
         col_span={2}
         refField={img_UrlRef}
       />
-      <button className="bg-green-600 rounded-md p-2" type="submit">
+      <button className="col-span-2 bg-green-600 text-white rounded-md px-4 py-2 hover:bg-green-700" type="submit">
         Submit
       </button>
     </form>
