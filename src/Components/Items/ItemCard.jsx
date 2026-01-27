@@ -7,7 +7,7 @@ import { useCart } from "../Contexts/CartContext";
 const fallbackImg =
   "https://thumbs.dreamstime.com/b/different-computer-gadgets-doodle-vector-illustrations-isolate-white-gadget-sketch-drawing-electronic-laptop-video-camera-93396398.jpg";
 
-const ItemCard = ({ item }) => {
+const ItemCard = ({ item, onDeleted }) => {
   const { addItem } = useCart();
 
   const handleAddToCart = () => {
@@ -23,6 +23,17 @@ const ItemCard = ({ item }) => {
   };
 
   //delete
+  const handleDelete = () => {
+    if (!confirm("Delete this item?")) return;
+    axios
+      .delete("http://localhost:3000/products/" + item.id)
+      .then(() => {
+        if (onDeleted) onDeleted(item.id);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
 
   return (
     <div className="w-full bg-white border border-slate-200 rounded-lg shadow">
@@ -61,7 +72,7 @@ const ItemCard = ({ item }) => {
               Edit
             </Link>
             <button
-              onClick={() => console.log("delete")}
+              onClick={handleDelete}
               className="inline-flex items-center px-4 py-2 text-sm font-medium text-white bg-red-600 rounded-lg"
             >
               Delete

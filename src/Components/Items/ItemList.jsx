@@ -19,6 +19,11 @@ const ItemList = () => {
         setLoading(false);
       });
   }, []);
+
+  const handleDeleted=(id)=>{
+    setItems((prev)=>prev.filter((x)=>String(x.id)!==String(id)))
+  }
+
   if (loading) return <div>Loading...</div>;
   return (
     <>
@@ -31,7 +36,7 @@ const ItemList = () => {
 
       <div className="grid grid-cols-3 gap-6 pt-8">
         {items.map((item) => (
-          <ItemCard key={item.id} item={item} />
+          <ItemCard key={item.id} item={item} onDeleted={handleDeleted} />
         ))}
       </div>
     </>
