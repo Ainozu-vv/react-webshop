@@ -62,6 +62,14 @@ const NavBar = () => {
             </li>
             <li>
               <Link
+                to="/items"
+                className="block py-2 px-3 text-slate-900 rounded hover:bg-slate-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0"
+              >
+                Items
+              </Link>
+            </li>
+            <li>
+              <Link
                 to="/test"
                 className="block py-2 px-3 text-slate-900 rounded hover:bg-slate-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0"
               >
