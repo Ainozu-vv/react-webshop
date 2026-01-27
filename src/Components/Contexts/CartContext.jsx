@@ -46,7 +46,7 @@ function normalizeQty(qty) {
 function cartReducer(state, action) {
   switch (action.type) {
     case "ADD_ITEM": {
-      const { item, qty } = item.payload;
+      const { item, qty } = action.payload;
       const quantity = normalizeQty(qty);
       const existingIndex = state.items.findIndex((x) => x.id === item.id);
       if (existingIndex === -1) {

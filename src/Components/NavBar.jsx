@@ -1,6 +1,8 @@
 import React from "react";
 import { Link } from "react-router";
+import { useCart } from "./Contexts/CartContext";
 const NavBar = () => {
+  const { totalItems } = useCart();
   return (
     <nav className="bg-white fixed w-full z-20 top-0 start-0 border-b border-slate-200">
       <div className="max-w-7xl flex flex-wrap items-center justify-between mx-auto px-4 py-3">
@@ -66,6 +68,14 @@ const NavBar = () => {
                 className="block py-2 px-3 text-slate-900 rounded hover:bg-slate-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0"
               >
                 Items
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/cart"
+                className="block py-2 px-3 text-slate-900 rounded hover:bg-slate-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0"
+              >
+                Cart ({totalItems})
               </Link>
             </li>
             <li>

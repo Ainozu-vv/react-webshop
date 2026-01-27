@@ -1,30 +1,31 @@
-import { 
-  BrowserRouter as Router,
-  Routes,
-  Route
-} from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import NavBar from "./Components/NavBar";
 import Test from "./Components/Test";
 import UserList from "./Components/Users/UserList";
 import NewUserForm from "./Components/Users/NewUserForm";
 import EditUserForm from "./Components/Users/EditUserForm";
 import ItemList from "./Components/Items/ItemList";
+import { CartProvider } from "./Components/Contexts/CartContext";
+import CartPage from "./Components/Cart/CartPage";
 function App() {
   return (
     <>
-      <Router>
-        <NavBar/>
-        <main className="pt-20 max-w-7xl mx-auto px-4">
-          <Routes>
-            <Route path="/" element={<></>}/>
-            <Route path="/users" element={<UserList/>}/>
-            <Route path="/new-user" element={<NewUserForm/>}/>
-            <Route path="/edit-user/:id" element={<EditUserForm/>}/>
-            <Route path="/test" element={<Test/>}/>
-            <Route path="/items" element={<ItemList/>}/>
-          </Routes>
-        </main>
-      </Router>
+      <CartProvider>
+        <Router>
+          <NavBar />
+          <main className="pt-20 max-w-7xl mx-auto px-4">
+            <Routes>
+              <Route path="/" element={<></>} />
+              <Route path="/users" element={<UserList />} />
+              <Route path="/new-user" element={<NewUserForm />} />
+              <Route path="/edit-user/:id" element={<EditUserForm />} />
+              <Route path="/test" element={<Test />} />
+              <Route path="/items" element={<ItemList />} />
+              <Route path="/cart" element={<CartPage />} />
+            </Routes>
+          </main>
+        </Router>
+      </CartProvider>
     </>
   );
 }

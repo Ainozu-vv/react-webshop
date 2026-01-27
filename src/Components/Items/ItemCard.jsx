@@ -2,12 +2,25 @@ import React from "react";
 import axios from "axios";
 import { Link } from "react-router";
 //useCart
+import { useCart } from "../Contexts/CartContext";
 
 const fallbackImg =
   "https://thumbs.dreamstime.com/b/different-computer-gadgets-doodle-vector-illustrations-isolate-white-gadget-sketch-drawing-electronic-laptop-video-camera-93396398.jpg";
 
 const ItemCard = ({ item }) => {
-  //addItem
+  const { addItem } = useCart();
+
+  const handleAddToCart = () => {
+    addItem(
+      {
+        id: item.id,
+        name: item.name,
+        price: item.price,
+        imageUrl: item.imageUrl,
+      },
+      1,
+    );
+  };
 
   //delete
 
@@ -36,7 +49,7 @@ const ItemCard = ({ item }) => {
 
           <div className="flex flex-wrap gap-2 mt-4">
             <button
-              onClick={() => console.log("click")}
+              onClick={handleAddToCart}
               className="inline-flex items-center px-4 py-2 text-sm font-medium text-white bg-green-600 rounded-lg"
             >
               Add to cart
