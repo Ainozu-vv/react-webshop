@@ -1,0 +1,12 @@
+json-server -- kamu api teszthez jsonból
+axios -- api lekérdezéshez
+react-router
+react-router-dom
+--- TAILWIND ---
+npm install tailwindcss @tailwindcss/vite
+
+
+
+npm install --save-dev babel-jest @babel/preset-env @babel/preset-react @testing-library/jest-dom
+
+npm install --save-dev jest-environment-jsdom @testing-library/user-event
