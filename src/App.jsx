@@ -7,25 +7,30 @@ import EditUserForm from "./Components/Users/EditUserForm";
 import ItemList from "./Components/Items/ItemList";
 import { CartProvider } from "./Components/Contexts/CartContext";
 import CartPage from "./Components/Cart/CartPage";
+import { AuthProvider } from "./Components/Contexts/AuthContext";
+import LoginPage from "./Components/Auth/LoginPage";
 function App() {
   return (
     <>
-      <CartProvider>
-        <Router>
-          <NavBar />
-          <main className="pt-20 max-w-7xl mx-auto px-4">
-            <Routes>
-              <Route path="/" element={<></>} />
-              <Route path="/users" element={<UserList />} />
-              <Route path="/new-user" element={<NewUserForm />} />
-              <Route path="/edit-user/:id" element={<EditUserForm />} />
-              <Route path="/test" element={<Test />} />
-              <Route path="/items" element={<ItemList />} />
-              <Route path="/cart" element={<CartPage />} />
-            </Routes>
-          </main>
-        </Router>
-      </CartProvider>
+      <AuthProvider>
+        <CartProvider>
+          <Router>
+            <NavBar />
+            <main className="pt-20 max-w-7xl mx-auto px-4">
+              <Routes>
+                <Route path="/" element={<></>} />
+                <Route path="/login" element={<LoginPage />} />
+                <Route path="/users" element={<UserList />} />
+                <Route path="/new-user" element={<NewUserForm />} />
+                <Route path="/edit-user/:id" element={<EditUserForm />} />
+                <Route path="/test" element={<Test />} />
+                <Route path="/items" element={<ItemList />} />
+                <Route path="/cart" element={<CartPage />} />
+              </Routes>
+            </main>
+          </Router>
+        </CartProvider>
+      </AuthProvider>
     </>
   );
 }

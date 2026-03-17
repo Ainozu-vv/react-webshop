@@ -1,8 +1,10 @@
 import React from "react";
 import { Link } from "react-router";
 import { useCart } from "./Contexts/CartContext";
+import { useAuth } from "./Contexts/AuthContext";
 const NavBar = () => {
   const { totalItems } = useCart();
+  const { user, isAuthenticated, logout } = useAuth();
   return (
     <nav className="bg-white fixed w-full z-20 top-0 start-0 border-b border-slate-200">
       <div className="max-w-7xl flex flex-wrap items-center justify-between mx-auto px-4 py-3">
@@ -85,6 +87,27 @@ const NavBar = () => {
               >
                 Test
               </Link>
+            </li>
+            <li className="md:ml-6">
+              {isAuthenticated ? (
+                <div className="flex items-center gap-3">
+                  <span className="text-sm text-slate-700">{user?.username}</span>
+                  <button
+                    type="button"
+                    className="text-sm text-slate-900 hover:text-blue-700"
+                    onClick={logout}
+                  >
+                    Logout
+                  </button>
+                </div>
+              ) : (
+                <Link
+                  to="/login"
+                  className="block py-2 px-3 text-slate-900 rounded hover:bg-slate-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0"
+                >
+                  Login
+                </Link>
+              )}
             </li>
           </ul>
         </div>

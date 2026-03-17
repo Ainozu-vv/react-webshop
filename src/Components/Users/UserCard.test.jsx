@@ -10,86 +10,47 @@ const renderWithRouter = (component) => {
 describe("UserCard Component", () => {
   const mockUser = {
     id: 1,
-    firstName: "John",
-    lastName: "Doe",
-    email: "john@example.com",
-    img_Url: "https://example.com/john.jpg",
+    username: "admin",
+    permissions: 1,
   };
 
   it("renders user information correctly", () => {
     renderWithRouter(
       <UserCard
         id={mockUser.id}
-        firstName={mockUser.firstName}
-        lastName={mockUser.lastName}
-        email={mockUser.email}
-        img_Url={mockUser.img_Url}
+        username={mockUser.username}
+        permissions={mockUser.permissions}
       />
     );
 
-    expect(screen.getByText("John Doe")).toBeInTheDocument();
-    expect(screen.getByText("john@example.com")).toBeInTheDocument();
+    expect(screen.getByText("admin")).toBeInTheDocument();
+    expect(screen.getByText("ADMIN")).toBeInTheDocument();
   });
 
   it("renders default values when props are not provided", () => {
     renderWithRouter(<UserCard id={1} />);
 
-    expect(screen.getByText("Lorem Ipsum")).toBeInTheDocument();
-    expect(screen.getByText("a@b.c")).toBeInTheDocument();
-  });
-
-  it("displays the profile image with correct src", () => {
-    renderWithRouter(
-      <UserCard
-        id={mockUser.id}
-        firstName={mockUser.firstName}
-        lastName={mockUser.lastName}
-        email={mockUser.email}
-        img_Url={mockUser.img_Url}
-      />
-    );
-
-    const img = screen.getByAltText("Profile image");
-    expect(img).toHaveAttribute("src", "https://example.com/john.jpg");
-  });
-
-  it("uses default profile image when img_Url is not provided", () => {
-    renderWithRouter(<UserCard id={1} />);
-
-    const img = screen.getByAltText("Profile image");
-    expect(img).toHaveAttribute(
-      "src",
-      "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"
-    );
+    expect(screen.getByText("user")).toBeInTheDocument();
+    expect(screen.getByText("-")).toBeInTheDocument();
   });
 
   it("renders Edit button with correct link", () => {
-    renderWithRouter(<UserCard id={5} firstName="John" lastName="Doe" email="john@example.com" />);
+    renderWithRouter(<UserCard id={5} username="john" permissions={0} />);
 
     const editLink = screen.getByRole("link", { name: /edit/i });
     expect(editLink).toHaveAttribute("href", "/edit-user/5");
-  });
-
-  it("renders Message button", () => {
-    renderWithRouter(<UserCard id={1} />);
-
-    const messageButton = screen.getByRole("link", { name: /message/i });
-    expect(messageButton).toBeInTheDocument();
   });
 
   it("renders all required elements", () => {
     renderWithRouter(
       <UserCard
         id={mockUser.id}
-        firstName={mockUser.firstName}
-        lastName={mockUser.lastName}
-        email={mockUser.email}
-        img_Url={mockUser.img_Url}
+        username={mockUser.username}
+        permissions={mockUser.permissions}
       />
     );
 
-    expect(screen.getByAltText("Profile image")).toBeInTheDocument();
     expect(screen.getByRole("link", { name: /edit/i })).toBeInTheDocument();
-    expect(screen.getByRole("link", { name: /message/i })).toBeInTheDocument();
+    expect(screen.getByText("ADMIN")).toBeInTheDocument();
   });
 });

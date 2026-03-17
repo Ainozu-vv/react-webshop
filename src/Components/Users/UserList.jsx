@@ -1,23 +1,55 @@
 import React, { useState, useEffect } from "react";
 import UserCard from "./UserCard";
 import { Link } from "react-router";
-import axios from "axios";
+import { Navigate } from "react-router-dom";
+import { useAuth } from "../Contexts/AuthContext";
+import * as usersApi from "../../api/usersApi";
 const UserList = () => {
   const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  const { isAuthenticated, isBootstrapping, hasPermission, PERMISSIONS } =
+    useAuth();
+  const isAdmin = hasPermission(PERMISSIONS.ADMIN);
 
   useEffect(() => {
-    axios
-      .get("http://localhost:3000/users")
-      .then((response) => {
-        console.log(response.data);
-        setUsers(response.data);
+    if (!isAuthenticated) return;
+    if (!isAdmin) return;
+
+    let cancelled = false;
+    setLoading(true);
+    setError(null);
+
+    usersApi
+      .listUsers()
+      .then((data) => {
+        if (cancelled) return;
+        setUsers(Array.isArray(data) ? data : []);
         setLoading(false);
       })
-      .catch((error) => {
-        console.log(error);
+      .catch((err) => {
+        if (cancelled) return;
+        console.log(err);
+        setError(err);
+        setLoading(false);
       });
-  }, []);
+
+    return () => {
+      cancelled = true;
+    };
+  }, [isAuthenticated, isAdmin]);
+
+  if (isBootstrapping) {
+    return <div>Loading...</div>;
+  }
+
+  if (!isAuthenticated) {
+    return <Navigate to="/login" replace />;
+  }
+
+  if (!isAdmin) {
+    return <div>Forbidden</div>;
+  }
 
   if (loading) {
     return <div>Loading...</div>;
@@ -35,14 +67,16 @@ const UserList = () => {
           Add new User{" "}
         </Link>
       </div>
+      {error ? (
+        <div className="pt-4 text-red-700">Failed to load users</div>
+      ) : null}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 pt-8">
         {users.map((user) => (
           <UserCard
+            key={user.id}
             id={user.id}
-            firstName={user.firstName}
-            lastName={user.lastName}
-            email={user.email}
-            img_Url={user.img_Url}
+            username={user.username}
+            permissions={user.permissions}
           />
         ))}
       </div>
